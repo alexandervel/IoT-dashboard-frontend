@@ -1,7 +1,7 @@
 <?php
 
 include_once ROOT. '/models/Sensors.php';
-include_once ROOT. '/models/Rooms.php';
+include_once ROOT. '/models/Labs.php';
 
 class SensorsController {
 
@@ -20,8 +20,8 @@ class SensorsController {
 	{
 		if ($id) {
 			$sensorsItem = Sensors::getSensorsItemByID($id);
-			$room_id = $sensorsItem['id_room'];
-			$roomsItem = Rooms::getRoomsItemByID($room_id);				
+			$lab_id = $sensorsItem['id_room'];
+			$labsItem = Labs::getLabsItemByID($lab_id);				
 
 			require_once(ROOT . '/views/sensors/view.php');
 

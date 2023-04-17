@@ -1,21 +1,20 @@
-<!-- <pre><? print_r($labsItem) ?></pre> -->
-<? include_once ROOT. '/template/header.php'; ?>	
+<? include_once ROOT. '/template/header.php'; ?>
 	<div class="container my-4">
-		<h4 class="my-4">Інформація про лабораторію <? echo $labsItem['room_name_short'] ?></h4>
+		<h4 class="my-4">Інформація про модель датчика <? echo $typesItem['model_name']; ?></h4>
 		<div class="row">
 			<div class="col-lg-8 mb-3">
 				<div class="card">
 					<div class="row g-0">
 						<div class="card-body">
-							<p class="card-text">Повна назва: <? echo $labsItem['room_name'] ?></p>
-							<p class="card-text"><? echo $labsItem['room_description'] ?><br>
-								Площа лабораторії: <? echo $labsItem['room_square'] ?> м<sup>2</sup><br>
-								Рекомендована температура: <? echo $labsItem['room_rec_temp'] ?> &deg;С
+							<p class="card-text">Параметри: <? echo $typesItem['model_description']; ?><br>
+								Мінімальна температура: <? echo $typesItem['model_min_value']; ?> &deg;С<br>
+								Максимальна температура: <? echo $typesItem['model_max_value']; ?> &deg;С<br>
+								Точність: +/- <? echo $typesItem['model_tolerance']; ?> &deg;С
 							</p>
-							<p class="card-text mb-2">Встановлено датчики:</p>
+							<p class="card-text mb-2">Встановлено в лабораторіях:</p>
 							<p class="card-text">
 								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-11</a>
+									<a href="" class="text-light text-decoration-none">4-34</a>
 								</span><span class="bg-info p-2 rounded-end">
 									<a href="" class="text-light text-decoration-none">
 										<i class="bi bi-graph-up-arrow"></i>
@@ -26,36 +25,16 @@
 								в 10.03.2023 10:00 
 								<span class="p-2 rounded text-bg-light">біля дверей</span>
 							</p>
-							<p class="card-text">
-								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-22</a>
-								</span><span class="bg-info p-2 rounded-end">
-									<a href="" class="text-light text-decoration-none">
-										<i class="bi bi-graph-up-arrow"></i>
-									</a>
-								</span>&nbsp;
-								Поточне значення:
-								<span class="p-2 rounded text-bg-success">17 &deg;C</span> 
-								в 10.03.2023 10:00 
-								<span class="p-2 rounded text-bg-light">біля вікна</span>
-							</p>
-							<p class="card-text mb-2"">Перейти до сторінки вимірювань в лабораторії:</p>
-							<p class="card-text border-bottom pb-3">
-								<span class="bg-secondary p-2 rounded">
-									<a href="" class="text-light text-decoration-none">
-									Виміри <i class="bi bi-graph-up-arrow"></i></a>
-								</span>&nbsp;
-							</p>
-							<p class="card-text mt-3"><small class="text-muted">Останнє оновлення інформації: 10.03.2023, 10:00</small></p>
+							<p class="card-text mt-3 border-top"><small class="text-muted">Останнє оновлення інформації: 10.03.2023, 10:00</small></p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-4 mb-3">
 				<div class="card">
-					<img class="img-fluid rounded-top" src="/template/images/<? echo $labsItem['room_photo']?>" alt="">
+					<img class="img-fluid rounded-top" src="/template/images/<? echo $typesItem['model_photo']; ?>" alt="">
 					<div class="card-body border-top">
-						<div class="card-text text-center">Зовнішній вигляд лабораторії</div>
+						<div class="card-text text-center">Зовнішній вигляд сенсору</div>
 					</div>
 				</div>
 			</div>

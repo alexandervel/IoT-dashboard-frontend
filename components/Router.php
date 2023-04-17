@@ -50,6 +50,7 @@ class Router
 
 
 				$controllerFile = ROOT . '/controllers/' .$controllerName. '.php';
+				echo "Controller: ". $controllerFile;
 				if (file_exists($controllerFile)) {
 					include_once($controllerFile);
 				}
