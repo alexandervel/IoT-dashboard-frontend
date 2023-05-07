@@ -1,4 +1,4 @@
-<!-- <pre><? print_r($labsList) ?></pre> -->
+<pre><? print_r($labsList) ?></pre>
 <? include_once ROOT. '/template/header.php'; ?>
 	<div class="container my-4">
 		<h4 class="my-4">Перелік лабораторій</h4>
@@ -16,20 +16,15 @@
 							</p>
 							<p class="card-text mb-2">Встановлено датчики:</p>
 							<p class="card-text">
+								<? foreach ($labItem['sensor'] as $sensor): ?>								
 								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-11</a>
+									<a href="/types/<? echo($sensor['id_model']) ?>" class="text-light text-decoration-none"><? echo($sensor['model_short_name']) ?></a>
 								</span><span class="bg-info p-2 rounded-end">
-									<a href="" class="text-light text-decoration-none">
+									<a href="/sensors/<? echo($sensor['id_sensor']) ?>" class="text-light text-decoration-none">
 										<i class="bi bi-graph-up-arrow"></i>
 									</a>
 								</span>&nbsp;
-								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-22</a>
-								</span><span class="bg-info p-2 rounded-end">
-									<a href="" class="text-light text-decoration-none">
-										<i class="bi bi-graph-up-arrow"></i>
-									</a>
-								</span>&nbsp;
+								<? endforeach; ?>
 							</p>	
 							<p class="card-text"><small class="text-muted">Останнє оновлення інформації: 10.03.2023, 10:00</small></p>
 						</div>

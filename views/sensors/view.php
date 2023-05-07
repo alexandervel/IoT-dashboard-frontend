@@ -38,48 +38,32 @@
 				</div>
 			</div>
 			<div class="col-lg-8 mb-3">
-				<img class="img-fluid" src="https://via.placeholder.com/800x300" alt="">
+				<form action="">
+					<label for="start-time">Від: </label>
+					<input type="date" id="start-time" name="start-time" value="<? echo $_GET['start-time'] ?>">
+					<label for="start-time">До: </label>
+					<input type="date" id="stop-time" name="stop-time" value="<? echo $_GET['stop-time'] ?>">
+					<button type="submit" class="btn btn-primary mt-3">Показати виміри</button>
+				</form>				
+				<table>
+					<tr>
+					<? foreach ($measurementData as $time): ?>
+						<td><? echo $time['measurement_time'] ?></td>
+					<? endforeach; ?>
+					</tr>
+					<tr>
+					<? foreach ($measurementData as $value): ?>
+						<td><? echo $value['measurement_value'] ?></td>
+					<? endforeach; ?>
+					</tr>
+				</table>
+
+				<div>
+				  <canvas id="myChart"></canvas>
+				</div>
+
 			</div>
 		</div>
 	</div>
 	<!-- footer -->
-	<div class="bg-secondary">
-		<div class="container">
-			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-				<p class="col-md-5 mb-0 text-light">&copy; 2023 RTES Department, Chernihiv Polytechnic</p>
-
-				<a href="/" class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-					<img src="images/logo_bras.png" alt="">
-				</a>
-
-				<ul class="nav col-md-5 justify-content-end">
-					<li class="nav-item">
-						<a href="#" class="nav-link px-2 text-light">
-							<i class="bi bi-house"></i> Головна
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link px-2 text-light">
-							<i class="bi bi-building"></i> Лабораторії
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link px-2 text-light">
-							<i class="bi bi-card-text"></i> Моделі
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link px-2 text-light">
-							<i class="bi bi-speedometer"></i> Сенсори</a>
-						</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link px-2 text-light">
-							<i class="bi bi-graph-up-arrow"></i> Виміри
-						</a>
-					</li>
-				</ul>
-			</footer>
-		</div>
-	</div>	
-</body>
-</html>
+<? include_once ROOT. '/template/footer.php'; ?>

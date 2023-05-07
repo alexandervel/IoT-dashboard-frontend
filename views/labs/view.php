@@ -1,4 +1,4 @@
-<!-- <pre><? print_r($labsItem) ?></pre> -->
+<pre><? print_r($sensorsInLabsList) ?></pre>
 <? include_once ROOT. '/template/header.php'; ?>	
 	<div class="container my-4">
 		<h4 class="my-4">Інформація про лабораторію <? echo $labsItem['room_name_short'] ?></h4>
@@ -13,32 +13,21 @@
 								Рекомендована температура: <? echo $labsItem['room_rec_temp'] ?> &deg;С
 							</p>
 							<p class="card-text mb-2">Встановлено датчики:</p>
+							<? foreach ($sensorsInLabsList as $sensorItem): ?>
 							<p class="card-text">
 								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-11</a>
+									<a href="/models/<? echo($sensorItem['id_model']) ?>" class="text-light text-decoration-none"><? echo($sensorItem['model_short_name']) ?></a>
 								</span><span class="bg-info p-2 rounded-end">
-									<a href="" class="text-light text-decoration-none">
+									<a href="/sensors/<? echo($sensorItem['id_sensor']) ?>" class="text-light text-decoration-none">
 										<i class="bi bi-graph-up-arrow"></i>
 									</a>
 								</span>&nbsp;
 								Поточне значення:
-								<span class="p-2 rounded text-bg-success">17 &deg;C</span> 
-								в 10.03.2023 10:00 
-								<span class="p-2 rounded text-bg-light">біля дверей</span>
+								<span class="p-2 rounded <? echo $sensorItem['bg'] ?> p-2"><? echo $sensorItem['last_measure_value'] ?></span>	
+								<small class="text-muted"><? echo $sensorItem['last_measure_time'] ?></small> 
+								<span class="p-2 rounded text-bg-light"><? echo($sensorItem['sensor_name']) ?></span>
 							</p>
-							<p class="card-text">
-								<span class="bg-secondary p-2 rounded-start">
-									<a href="" class="text-light text-decoration-none">DHT-22</a>
-								</span><span class="bg-info p-2 rounded-end">
-									<a href="" class="text-light text-decoration-none">
-										<i class="bi bi-graph-up-arrow"></i>
-									</a>
-								</span>&nbsp;
-								Поточне значення:
-								<span class="p-2 rounded text-bg-success">17 &deg;C</span> 
-								в 10.03.2023 10:00 
-								<span class="p-2 rounded text-bg-light">біля вікна</span>
-							</p>
+							<? endforeach; ?>
 							<p class="card-text mb-2"">Перейти до сторінки вимірювань в лабораторії:</p>
 							<p class="card-text border-bottom pb-3">
 								<span class="bg-secondary p-2 rounded">

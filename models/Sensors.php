@@ -4,7 +4,7 @@
 class Sensors
 {
 
-	/** Returns single news items with specified id
+	/** Returns single sensor items with specified id
 	* @rapam integer &id
 	*/
 
